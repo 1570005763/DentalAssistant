@@ -1,0 +1,54 @@
+<!--pages/myQuestion/myQuestion.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel">
+      <view class="weui-panel__hd">当前咨询</view>
+      <view class="weui-panel__bd">
+        <view wx:if='{{currentQuestion.length==0}}' class="weui-cell">
+          <view class="weui-cell__bd">暂无咨询</view>
+          <view class="weui-cell__ft">
+            <button class="btn" type='primary' bindtap='bindAskQuestion'>我要咨询</button>
+          </view>
+        </view>
+        <navigator url="/pages/questionDetail/questionDetail?id={{item._id}}" wx:for="{{currentQuestion}}" class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text my-cell">
+            <view class="weui-cell__bd titleWidth">{{item.title}}</view>
+            <view wx:if="{{item.haveNewAnswer}}" class="weui-cell__ft">
+              <button class="btn" type='primary' id="{{item._id}}" catchtap='bindReadQuestion'>设为已读</button>
+            </view>
+            <view wx:else class="weui-cell__ft">
+              <button class="btn" type='warn' id="{{item._id}}" catchtap='bindCancelQuestion'>取消咨询</button>
+            </view>
+          </view>
+          <view class="weui-media-box__desc">{{item.content}}</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{currentQuestionTime[index].year}}年{{currentQuestionTime[index].month}}月{{currentQuestionTime[index].date}}日</view>
+            <view wx:if="{{item.haveNewAnswer}}" class="weui-media-box__info__meta weui-media-box__info__meta_extra stress">已回答</view>
+            <view wx:else class="weui-media-box__info__meta weui-media-box__info__meta_extra">待回答</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class="weui-panel">
+      <view class="weui-panel__hd">历史咨询</view>
+      <view class="weui-panel__bd">
+        <navigator url="/pages/questionDetail/questionDetail?id={{item._id}}" 
+wx:for="{{historyQuestion}}" class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text titleWidth">{{item.title}}</view>
+          <view class="weui-media-box__desc">{{item.content}}</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">{{historyQuestionTime[index].year}}年{{historyQuestionTime[index].month}}月{{historyQuestionTime[index].date}}日</view>
+            <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.isCancel?'已取消':'已回答'}}</view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view wx:if='{{isLoading}}' class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view wx:if='{{isEnd}}' class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多</view>
+    </view>
+  </view>
+</view>

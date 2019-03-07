@@ -1,0 +1,119 @@
+/* pages/setTime/setTime.wxss */
+.container{
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  flex: 1;
+  min-height: 100%;
+  font-size: 32rpx;
+}
+
+.date-show{
+  position: relative;
+  width: 320rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 40rpx;
+  color: #282828;
+  text-align: center;
+  margin: 50rpx auto 10rpx;
+}
+
+.lt-arrow, .rt-arrow{
+  position: absolute;
+  top: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.lt-arrow image, .rt-arrow image{
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.lt-arrow{
+  left: -100rpx;
+}
+
+.rt-arrow{
+  right: -100rpx;
+}
+
+.arrow-hover{
+  background-color: #ddd;
+}
+
+.date{
+  width: 350rpx;
+}
+
+.body{
+  position: relative;
+  padding-top: 26rpx;
+  padding-bottom: 176rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  overflow: hidden;
+}
+
+.item-info{
+  display: flex;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  padding: 0rpx;
+  background-color: #fff;
+  overflow: hidden;
+  border: 3rpx solid #ddd;
+  border-radius: 5rpx;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: row;
+}
+
+.item-time{
+  flex: 1;
+  width: 340rpx;
+  height: 80rpx;
+  border-right: 9rpx double #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-reserved{
+  flex: 1;
+  width: 200rpx;
+  height: 80rpx;
+  border-right: 9rpx double #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.picker{
+  width: 200rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar{
+  width: 50px;
+  height: 50px;
+  display: block
+}
+
+.patient-info{
+  font-size: 30rpx;
+}
+
+.foot{
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  width: 750rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-top: solid 2rpx rgb(228, 226, 226);
+}

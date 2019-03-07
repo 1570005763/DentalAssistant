@@ -1,0 +1,107 @@
+<!--pages/questionAnswer/questionAnswer.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <navigator url='/pages/patientInfo/patientInfo?openid={{question.openid}}' class="weui-cell">
+        <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+          <image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block"/>
+        </view>
+        <view class="weui-cell__bd">
+          <view>{{userInfo.nickName}}</view>
+          <view style="font-size: 13px;color: #888888;">{{userInfo.province}} {{userInfo.city}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class="weui-article">
+      <view class="weui-article__h1">{{question.title}}</view>
+      <view class="weui-article__section">
+        <view class="weui-article__title">1.基本信息</view>
+        <view class="weui-article__section">
+          <view class="weui-article__p">
+            性别：{{question.gender==1?'男':'女'}}
+          </view>
+          <view class="weui-article__p">
+            年龄：{{question.age}}
+          </view>
+          <view class="weui-article__p">
+            提问时间：{{time.year}}年{{time.month}}月{{time.date}}日
+          </view>
+        </view>
+        <view class="weui-article__title">2.详细描述</view>
+        <view class="weui-article__section">
+          <view class="weui-article__p">
+            {{question.content}}
+          </view>
+        </view>
+        <view wx:if="{{question.files.length!=0}}" class="weui-article__title">3.附图</view>
+        <view wx:if="{{question.files.length!=0}}" class="weui-article__section">
+          <view class="weui-article__p">
+            <view wx:for="{{url}}" id="{{item.tempFileURL}}" bindtap='bindPreview'>
+              <image class="weui-article__img img" src="{{item.tempFileURL}}" mode="aspectFit" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{!question.isCancel}}" class="weui-article__h1 border">医生解答</view>
+      <view wx:if="{{!question.isCancel}}" class="weui-article__section">
+        <view wx:if="{{question.isFinish}}" class="weui-article__section">
+          <view class="weui-article__p">
+            {{question.answer.content}}
+          </view>
+          <view class="weui-article__p">
+            <view wx:for="{{files}}" id="{{item.tempFileURL}}" bindtap='bindPreview'>
+              <image class="weui-article__img img" src="{{item.tempFileURL}}" mode="aspectFit" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!question.isFinish}}" class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" maxlength="{{maxNum}}" bindinput="bindContentChange" placeholder="请输入您的解答" auto-height="true" />
+          <view class="weui-textarea-counter">{{num}}/500</view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!question.isFinish}}" class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">图片上传（可选）</view>
+              <view class="weui-uploader__info">{{files.length}}/{{maxFile}}</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for="{{files}}" wx:key="*this">
+                  <view class="weui-uploader__file {{uploadStatus[index].progress==100?'':'weui-uploader__file_status'}}" bindtap="previewImage" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    <view wx:if="{{uploadStatus[index].error}}" class="weui-uploader__file-content">
+                      <icon type="warn" size="23" color="#F43530"></icon>
+                    </view>
+                    <view wx:elif="{{uploadStatus[index].progress!=100}}" class="weui-uploader__file-content">{{uploadStatus[index].progress}}%</view>
+                  </view>
+                </block>
+              </view>
+              <view wx:if="{{files.length<maxFile}}" class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{!question.isFinish}}" class="weui-btn-area">
+      <button class="weui-btn" disabled="{{question.isCancel}}" type="primary" bindtap="bindSubmit">提交</button>
+    </view>
+    <view wx:elif="{{question.isCancel}}" class="weui-btn-area">
+      <button class="weui-btn" disabled="{{question.isCancel}}" type="primary" bindtap="bindSubmit">已取消</button>
+    </view>
+    <view wx:if="{{!question.isFinish}}" class="weui-btn-area">
+      <button class="weui-btn" disabled="{{question.isIgnored}}" type="warn" bindtap="bindIgnore">{{question.isIgnored?'已忽略':'忽略'}}</button>
+    </view>
+  </view>
+</view>

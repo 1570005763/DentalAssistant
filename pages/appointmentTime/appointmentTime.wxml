@@ -1,0 +1,63 @@
+<!--pages/appointmentTime/appointmentTime.wxml-->
+<view class='container'>
+  <view class='date-show'>
+    <view class='lt-arrow' hover-class='arrow-hover' bindtap='lastDay'>
+      <image src='/images/arrow-left.png' mode='aspectFit'></image>
+    </view>
+    <text>{{year}}年{{month}}月{{date}}日\n星期{{dayStr[day-1]}}</text>
+    <view class='rt-arrow' hover-class='arrow-hover' bindtap='nextDay'>
+      <image src='/images/arrow-right.png' mode='aspectFit'></image>
+    </view>
+  </view>
+  <view wx:if="{{date}}" class='body'>
+    <radio-group bindchange='radioChange'>
+      <label class='item' wx:for='{{index}}' wx:for-index='id'>
+        <radio value='{{item.timeId}}' disabled='{{disabled[id]}}' checked='{{checked}}' />
+        <view class='item-time'>{{time[item.timeId]}}</view>
+        <view class='item-reserved'>预约人数：{{item.reserved}}/{{item.total}}</view>
+      </label>
+    </radio-group>
+  </view>
+  <view class='submit'>
+    <button type='primary' style='width:700rpx' bindtap='bindSubmit'>预约</button>
+  </view>
+</view>
+
+<!--mask-->
+<view wx:if="{{showModalStatus}}" class="drawer_screen"></view>
+<!--content-->
+<view wx:if="{{showModalStatus}}" class="drawer_box">
+  <!--drawer content-->
+  <view class="drawer_title">请填写个人信息以完成预约</view>
+  <view class="drawer_content">
+    <view class="top">
+      <label class="title">姓名</label>
+      <input class="input_base" maxlength='32' value="{{name}}" bindblur='bindNameInput'></input>
+    </view>
+    <view class="top">
+      <label class="title">性别</label>
+      <view class="input-gender">
+        <radio-group class='gender-radio' bindchange="bindGenderChange">
+          <label class="gender-selection">
+            <radio value="1" checked="{{gender==1?true:false}}">男</radio>
+          </label>
+          <label class="gender-selection">
+            <radio value="0" checked="{{gender==0?true:false}}">女</radio>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="top">
+      <label class="title">年龄</label>
+      <input class="input_base" type='number' maxlength='3' value="{{age}}" bindblur='bindAgeInput'></input>
+    </view>
+    <view class="top">
+      <label class="title">手机号</label>
+      <input class="input_base" type='number' maxlength='20' value="{{phoneNumber}}" bindblur='bindPhoneInput'></input>
+    </view>
+  </view>
+  <view class='bottom-box'>
+    <view class="btn_cancel" bindtap="bindCancel">取消</view>
+    <view class="btn_ok" bindtap="bindConfirm">确认并预约</view>
+  </view>
+</view>

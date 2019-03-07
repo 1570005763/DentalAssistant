@@ -1,0 +1,15 @@
+<!--pages/login/login.wxml-->
+<view wx:if="{{canIUse}}">
+  <view class='header'>
+    <image src='/images/dental_assistant.png'></image>
+  </view>
+
+  <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetPatientInfo">
+    用户登录
+  </button>
+  <button class='bottom' type='default' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetDentistInfo">
+    医生登录
+  </button>
+</view>
+
+<view wx:else>请升级微信版本</view>

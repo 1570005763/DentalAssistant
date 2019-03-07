@@ -1,0 +1,4 @@
+/* pages/myAppointment/myAppointment.wxss */
+.btn {
+  font-size: 30rpx;
+}

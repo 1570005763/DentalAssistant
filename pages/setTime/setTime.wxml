@@ -1,0 +1,48 @@
+<!--pages/setTime/setTime.wxml-->
+<view class='container'>
+  <view class='date-show'>
+    <view class='lt-arrow' hover-class='arrow-hover' bindtap='lastDay'>
+      <image src='/images/arrow-left.png' mode='aspectFit'></image>
+    </view>
+    <view class='date'>
+      <text>{{year}}年{{month}}月{{day}}日\n星期{{dateStr[date-1]}}</text>
+    </view>
+    <view class='rt-arrow' hover-class='arrow-hover' bindtap='nextDay'>
+      <image src='/images/arrow-right.png' mode='aspectFit'></image>
+    </view>
+  </view>
+  <view class='body'>
+    <view wx:for='{{index}}' wx:for-item='item' wx:for-index='idx' class='item'>
+      <view class='item-info'>
+        <text class="item-time">{{time[item.timeId]}}</text>
+        <view class="item-reserved" data-i='{{idx}}' bindtap="toggle">已约：{{item.reserved}}</view>
+        <picker data-i='{{idx}}' bindchange="bindPickerChange" value='{{item.total}}' range='{{range}}'>
+          <view class="picker">可约：{{item.total}}</view>
+        </picker>
+      </view>
+      <view wx:if='{{viewShow[idx]}}'>
+        <view wx:if='{{patient[idx].length==0}}' class="weui-loadmore weui-loadmore_line">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无预约</view>
+        </view>
+        <view wx:else class="weui-cells weui-cells_after-title">
+          <navigator url='/pages/patientInfo/patientInfo?openid={{it._id}}' wx:for='{{patientInfo[idx]}}' wx:for-item='it' class="weui-cell">
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+              <image src="{{it.wechatInfo.avatarUrl}}" class="avatar" />
+            </view>
+            <view class="weui-cell__bd">
+              <view>{{it.name}}</view>
+              <view style="font-size: 13px;color: #888888;">{{it.gender==1?"男":"女"}} {{it.age}} {{it.phoneNumber}}</view>
+            </view>
+          </navigator>
+          <view wx:if="{{patientInfo[idx].length==0}}" class="weui-loadmore">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='foot'>
+    <button type='primary' style='width:720rpx;' bindtap='bindSubmit'>提交</button>
+  </view>
+</view>

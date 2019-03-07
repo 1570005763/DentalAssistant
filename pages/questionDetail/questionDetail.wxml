@@ -1,0 +1,57 @@
+<!--pages/questionDetail/questionDetail.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__h1">{{question.title}}</view>
+      <view class="weui-article__section">
+        <view class="weui-article__title">1.基本信息</view>
+        <view class="weui-article__section">
+          <view class="weui-article__p">
+            性别：{{question.gender==1?'男':'女'}}
+          </view>
+          <view class="weui-article__p">
+            年龄：{{question.age}}
+          </view>
+          <view class="weui-article__p">
+            提问时间：{{time.year}}年{{time.month}}月{{time.date}}日
+          </view>
+        </view>
+        <view class="weui-article__title">2.详细描述</view>
+        <view class="weui-article__section">
+          <view class="weui-article__p">
+            {{question.content}}
+          </view>
+        </view>
+        <view wx:if="{{question.files.length!=0}}" class="weui-article__title">3.附图</view>
+        <view wx:if="{{question.files.length!=0}}" class="weui-article__section">
+          <view class="weui-article__p">
+            <view wx:for="{{urlAsk}}" id="{{item.tempFileURL}}" bindtap='bindPreview'>
+              <image class="weui-article__img img" src="{{item.tempFileURL}}" mode="aspectFit" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{!question.isCancel}}" class="weui-article__h1 border">医生解答</view>
+      <view wx:if="{{!question.isCancel}}" class="weui-article__section">
+        <view wx:if="{{question.isFinish}}" class="weui-article__section">
+          <view class="weui-article__p">
+            {{question.answer.content}}
+          </view>
+          <view class="weui-article__p">
+            <view wx:for="{{urlAnswer}}" id="{{item.tempFileURL}}" bindtap='bindPreview'>
+              <image class="weui-article__img img" src="{{item.tempFileURL}}" mode="aspectFit" />
+            </view>
+          </view>
+        </view>
+        <view wx:else class="weui-article__section">
+          <view class="weui-article__p">
+            请耐心等待医生解答
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{!question.isFinish}}" class="weui-btn-area">
+      <button class="weui-btn" disabled="{{question.isCancel}}" type="warn" bindtap="bindSubmit">取消咨询</button>
+    </view>
+  </view>
+</view>

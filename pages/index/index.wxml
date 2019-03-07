@@ -1,0 +1,43 @@
+<!--pages/index/index.wxml-->
+<view class='container'>
+  <view class="resume">
+    <view class="flex-item">
+      <image class="photo" src='/images/yz.jpg'></image>
+    </view>
+    <view class="flex-item">
+      <view class="intro">
+        <text>杨秩，主治医师，华西口腔正畸学博士，中科院上海分院博士后，上海九院正颌正畸门诊主治医师，中华口腔正畸学会会员，世界正畸协会会员，上海市第九人民医院优秀青年医师。</text>
+      </view>
+    </view>
+  </view>
+  <view class='func'>
+      <navigator class="btn" url='/pages/question/question'>我要咨询</navigator>
+      <navigator class="btn" url='/pages/appointment/appointment'>我要预约</navigator>
+  </view>
+  <view class='time-line'>
+    <navigator wx:for='{{trends}}' wx:key="index" class='timeline-single-close' url="/pages/newsDetail/newsDetail?url={{item.url}}">
+      <view class='timeline-single-noReach-online-top-close'>
+        <view wx:if='{{index!=0}}' class='online-top'></view>
+        <view wx:else class='online-top-start'></view>
+        <view class='dot-close'></view>
+        <view wx:if='{{index!=trends.length-1}}' class='online-bottom'></view>
+        <view wx:else class='online-bottom-close'></view>
+      </view>
+      <view class='timeline-text'>
+        <view class='timeline-title'>{{item.title}}</view>
+        <view class='timeline-content'>{{item.content}}</view>
+      </view>
+      <view class='timeline-date'>
+        <view class='timeline-date-year'>{{item.year}}</view>
+        <view class='timeline-date-time'>{{item.month}}.{{item.date}}</view>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if='{{isLoading}}' class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+  <view wx:if='{{isEnd}}' class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多</view>
+  </view>
+</view>

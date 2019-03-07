@@ -1,0 +1,35 @@
+<!--pages/setAppointment/setAppointment.wxml-->
+<view class='container'>
+  <view class='date-show'>
+    <view class='lt-arrow' hover-class='arrow-hover' bindtap='lastMonth'>
+      <image src='/images/arrow-left.png' mode='aspectFit'></image>
+    </view>
+    {{year}}年{{month}}月
+    <view class='rt-arrow' hover-class='arrow-hover' bindtap='nextMonth'>
+      <image src='/images/arrow-right.png' mode='aspectFit'></image>
+    </view>
+  </view>
+  <view class='header'>
+    <view wx:for='{{date}}' class='weekMark'>
+      <view>{{item}}</view>
+    </view>	
+  </view>
+  <view class='date-box'>
+    <view wx:for='{{dateArr}}' class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+      <navigator url='/pages/setTime/setTime?year={{item.yearNum}}&month={{item.monthNum}}&day={{item.dayNum}}&date={{item.dateNum}}'>
+        <view wx:if="{{item.isSet==true}}">
+          <view class='date-set'>{{item.dayNum}}</view>
+          <view class='date-weight'>{{item.reserved}}/{{item.total}}</view>
+        </view>
+        <view wx:else>
+          <view class='date'>{{item.dayNum}}</view>
+          <view class='date-null'>.</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class='annotation'>
+    <view class='set'></view>
+    <view class='note'>已设置</view>
+  </view>
+</view>

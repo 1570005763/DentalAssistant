@@ -1,0 +1,8 @@
+/* pages/questionAnswer/questionAnswer.wxss */
+.img{
+  width: 675rpx;
+}
+
+.border{
+  border-top: 4rpx solid #999;
+}

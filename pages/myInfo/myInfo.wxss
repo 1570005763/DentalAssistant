@@ -1,0 +1,131 @@
+/* pages/myInfo/myInfo.wxss */
+.update{
+  position: fixed;
+  bottom: 30rpx;
+  z-index: 1;
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*content*/
+.drawer_box {
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1001;
+  background: #FAFAFA;
+  margin: -150px 50rpx 0 50rpx;
+  border-radius: 3px;
+}
+
+.drawer_title{
+  padding:15px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+}
+
+.drawer_content {
+  height: 180px;
+  overflow-y: scroll; /*超出父盒子高度可滚动*/
+}
+
+.top{
+  padding-top: 8px;
+  display: -webkit-box;
+  display: box;
+}
+
+.title {
+  height: 30px;
+  line-height: 30px;
+  width: 160rpx;
+  text-align: center;
+  display: inline-block;
+  font: 300 28rpx/30px "microsoft yahei";
+  -webkit-box-flex: 0;
+  box-flex: 0;
+}
+
+.gender-radio{
+  display: flex;
+  flex-direction: row;
+}
+
+.input-gender{
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10rpx;
+  margin-right: 50rpx;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+
+.gender-selection{
+  width: 120rpx;
+}
+
+.input_base {
+  height: 30px;
+  line-height: 30px;
+  border: 2rpx solid #ccc;
+  padding-left: 10rpx;
+  margin-right: 50rpx;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+
+.input_view{
+  font: 12px "microsoft yahei";
+  background: #fff;
+  color: #000;
+  line-height: 30px;
+}
+
+input {
+  font: 12px "microsoft yahei";
+  background: #fff;
+  color: #000;
+}
+
+.bottom-box{
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_cancel{
+  width: 325rpx;
+  padding: 10px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+  border-top: 1px solid #E8E8EA;
+  border-right: 1px solid #E8E8EA;
+  color: rgb(200, 200, 200);
+}
+
+.btn_ok{
+  width: 325rpx;
+  padding: 10px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+  border-top: 1px solid #E8E8EA;
+  color: #3CC51F;
+}

@@ -1,0 +1,26 @@
+<!--pages/questionnaire/questionnaire.wxml-->
+<view>
+  <view class='header'>
+    <image src='/images/questionnaire.png'></image>
+  </view>
+
+
+  <view class='content'>
+    <view>将会跳转到以下小程序</view>
+    <text>趣问卷</text>
+  </view>
+  
+  <navigator 
+    target="miniProgram" 
+    open-type="navigate" 
+    app-id="wx245a993afc0ac892"
+    bindsuccess="bindSuccess"
+    bindfail="bindFail">
+    <button class='bottom' type='primary' lang="zh_CN" bindtap="bindConfirm">
+      确认跳转
+    </button>
+  </navigator>
+  <button class='bottom' type='default' lang="zh_CN" bindtap="bindCancel">
+      取消
+  </button>
+</view>

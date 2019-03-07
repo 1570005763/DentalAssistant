@@ -1,0 +1,20 @@
+<!--pages/setBlacklist/setBlacklist.wxml-->
+<view class="weui-cells weui-cells_after-title">
+  <navigator url='/pages/patientInfo/patientInfo?openid={{item._id}}' wx:for='{{patientInfo}}' class="weui-cell">
+    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+      <image src="{{item.wechatInfo.avatarUrl}}" class="avatar" />
+    </view>
+    <view class="weui-cell__bd">
+      <view>{{item.wechatInfo.nickName}}</view>
+      <view style="font-size: 13px;color: #888888;">{{item.permissionAppointment?"禁止预约":"        "}} {{item.permissionQuestion?"禁止咨询":"        "}}</view>
+    </view>
+  </navigator>
+</view>
+
+<view wx:if="{{isLoading}}" class="weui-loadmore">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载</view>
+</view>
+<view wx:elif="{{isEnd}}" class="weui-loadmore weui-loadmore_line">
+  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多</view>
+</view>

@@ -1,0 +1,66 @@
+<!--pages/myInfo/myInfo.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title">我的信息（仅用于预约）</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">姓名</view>
+        <view class="weui-cell__ft">{{name!=null?name:'无'}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别</view>
+        <view class="weui-cell__ft">{{gender!=null?(gender==1?'男':'女'):'无'}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">年龄</view>
+        <view class="weui-cell__ft">{{age!=null?age:'无'}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">手机号</view>
+        <view class="weui-cell__ft">{{phoneNumber!=null?phoneNumber:'无'}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='update'>
+    <button type='primary' style='width:700rpx' bindtap='bindUpdate'>更新信息</button>
+  </view>
+</view>
+
+<!--mask-->
+<view wx:if="{{showModalStatus}}" class="drawer_screen"></view>
+<!--content-->
+<view wx:if="{{showModalStatus}}" class="drawer_box">
+  <!--drawer content-->
+  <view class="drawer_title">更新我的信息</view>
+  <view class="drawer_content">
+    <view class="top">
+      <label class="title">姓名</label>
+      <input class="input_base" maxlength='32' value="{{tmpName}}" bindblur='bindNameInput'></input>
+    </view>
+    <view class="top">
+      <label class="title">性别</label>
+      <view class="input-gender">
+        <radio-group class='gender-radio' bindchange="bindGenderChange">
+          <label class="gender-selection">
+            <radio value="1" checked="{{tmpGender==1?true:false}}">男</radio>
+          </label>
+          <label class="gender-selection">
+            <radio value="0" checked="{{tmpGender==0?true:false}}">女</radio>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class="top">
+      <label class="title">年龄</label>
+      <input class="input_base" type='number' maxlength='3' value="{{tmpAge}}" bindblur='bindAgeInput'></input>
+    </view>
+    <view class="top">
+      <label class="title">手机号</label>
+      <input class="input_base" type='number' maxlength='20' value="{{tmpPhoneNumber}}" bindblur='bindPhoneInput'></input>
+    </view>
+  </view>
+  <view class='bottom-box'>
+    <view class="btn_cancel" bindtap="bindCancel">取消</view>
+    <view class="btn_ok" bindtap="bindConfirm">更新</view>
+  </view>
+</view>

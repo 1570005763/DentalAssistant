@@ -1,0 +1,24 @@
+<!--pages/patientAppointment/patientAppointment.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title">当前预约</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view wx:if='{{reservedAppointment==null}}' class="weui-cell">
+        <view class="weui-cell__bd">暂无预约</view>
+      </view>
+      <view wx:else class="weui-cell">
+        <view class="weui-cell__bd">{{reservedAppointment.date}}/{{time[reservedAppointment.time]}}</view>
+      </view>
+    </view>
+    <view class="weui-cells__title">历史预约</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view wx:if='{{appointments.length==0}}' class="weui-cell">
+        <view class="weui-cell__bd">暂无预约</view>
+      </view>
+      <view wx:for='{{appointments}}' wx:for-item='item' wx:for-index='idx' class="weui-cell">
+        <view class="weui-cell__bd">{{item.date}}/{{time[item.time]}}</view>
+        <view wx:if='{{item.avaliable==false}}' class="weui-cell__ft">已取消</view>
+      </view>
+    </view>
+  </view>
+</view>

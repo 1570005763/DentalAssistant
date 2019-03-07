@@ -1,0 +1,246 @@
+/* pages/appointmentTime/appointmentTime.wxss */
+radio .wx-radio-input{
+   border-radius: 50%;
+   width: 40rpx;
+   height: 40rpx;
+   background-color: #fff;
+}
+
+/* 选中后的 对勾样式 */
+radio .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;/* 圆角 */
+  width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 40rpx;
+  text-align: center;
+  font-size:30rpx; /* 对勾大小 30rpx */
+  color:#fff; /* 对勾颜色 白色 */
+  background: transparent;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+
+.date-show{
+  position: relative;
+  width: 350rpx;
+  font-family: PingFang-SC-Regular;
+  font-size: 40rpx;
+  color: #282828;
+  text-align: center;
+  margin: 50rpx auto 10rpx;
+}
+
+.lt-arrow, .rt-arrow{
+  position: absolute;
+  top: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.lt-arrow image, .rt-arrow image{
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.lt-arrow{
+  left: -100rpx;
+}
+
+.rt-arrow{
+  right: -100rpx;
+}
+
+.arrow-hover{
+  background-color: #ddd;
+}
+
+.body{
+  position: relative;
+  padding-top: 26rpx;
+  padding-bottom: 26rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  overflow: hidden;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  font-size: 32rpx;
+}
+
+.item{
+  display: flex;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  padding: 10rpx 20rpx;
+  background-color: #fff;
+  overflow: hidden;
+  border: solid 3rpx #ddd;
+  border-radius: 5rpx;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: row;
+}
+
+.item-time{
+  flex: 1;
+  width: 340rpx;
+  height: 80rpx;
+  border-left: 4rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-reserved{
+  flex: 1;
+  width: 200rpx;
+  height: 80rpx;
+  border-left: 4rpx solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foot{
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  width: 750rpx;
+  height: 140rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-top: solid 2rpx rgb(228, 226, 226);
+}
+
+.submit{
+  position: fixed;
+  bottom: 30rpx;
+  z-index: 1;
+  width: 750rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*content*/
+.drawer_box {
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 1001;
+  background: #FAFAFA;
+  margin: -150px 50rpx 0 50rpx;
+  border-radius: 3px;
+}
+
+.drawer_title{
+  padding:15px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+}
+
+.drawer_content {
+  height: 180px;
+  overflow-y: scroll; /*超出父盒子高度可滚动*/
+}
+
+.top{
+  padding-top: 8px;
+  display: -webkit-box;
+  display: box;
+}
+
+.title {
+  height: 30px;
+  line-height: 30px;
+  width: 160rpx;
+  text-align: center;
+  display: inline-block;
+  font: 300 28rpx/30px "microsoft yahei";
+  -webkit-box-flex: 0;
+  box-flex: 0;
+}
+
+.gender-radio{
+  display: flex;
+  flex-direction: row;
+}
+
+.input-gender{
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10rpx;
+  margin-right: 50rpx;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+
+.gender-selection{
+  width: 120rpx;
+}
+
+.input_base {
+  height: 30px;
+  line-height: 30px;
+  border: 2rpx solid #ccc;
+  padding-left: 10rpx;
+  margin-right: 50rpx;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+
+.input_view{
+  font: 12px "microsoft yahei";
+  background: #fff;
+  color: #000;
+  line-height: 30px;
+}
+
+input {
+  font: 12px "microsoft yahei";
+  background: #fff;
+  color: #000;
+}
+
+.bottom-box{
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.btn_cancel{
+  width: 325rpx;
+  padding: 10px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+  border-top: 1px solid #E8E8EA;
+  border-right: 1px solid #E8E8EA;
+  color: rgb(200, 200, 200);
+}
+
+.btn_ok{
+  width: 325rpx;
+  padding: 10px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+  border-top: 1px solid #E8E8EA;
+  color: #3CC51F;
+}

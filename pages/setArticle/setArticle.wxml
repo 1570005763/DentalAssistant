@@ -1,0 +1,60 @@
+<!--pages/setArticle/setArticle.wxml-->
+<view class="page">
+  <view class="page__bd">
+    <view class="page__hd">
+      <view class="page__title">文章</view>
+      <view class="page__desc">请填写您要设置的公众号文章</view>
+    </view>
+
+    <view class="weui-cells__title">文章类型</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <picker bindchange="bindPickerChange" value="{{selectedType}}" range="{{articleType}}">
+            <view class="weui-input">请选择文章类型：{{articleType[selectedType]}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">文章链接</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindblur="bindUrlChange" placeholder="请输入文章链接" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">标题</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindblur="bindTitleChange" placeholder="请输入文章标题" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">摘要</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindblur="bindAbstractChange" placeholder="请输入文章摘要" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">封面链接</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindblur="bindCoverChange" placeholder="请输入封面链接" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="bindSubmit">提交</button>
+    </view>
+  </view>
+</view>

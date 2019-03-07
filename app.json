@@ -1,0 +1,74 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/my/my",
+    "pages/news/news",
+    "pages/newsDetail/newsDetail",
+    "pages/appointment/appointment",
+    "pages/dentist/dentist",
+    "pages/setAppointment/setAppointment",
+    "pages/setArticle/setArticle",
+    "pages/setQuestion/setQuestion",
+    "pages/setTime/setTime",
+    "pages/patientInfo/patientInfo",
+    "pages/appointmentTime/appointmentTime",
+    "pages/question/question",
+    "pages/setTrends/setTrends",
+    "pages/myAppointment/myAppointment",
+    "pages/myQuestion/myQuestion",
+    "pages/myInfo/myInfo",
+    "pages/mySetting/mySetting",
+    "pages/myQuestionnaire/myQuestionnaire",
+    "pages/patientQuestion/patientQuestion",
+    "pages/patientAppointment/patientAppointment",
+    "pages/setBlacklist/setBlacklist",
+    "pages/questionDetail/questionDetail",
+    "pages/questionAnswer/questionAnswer",
+    "pages/questionHistory/questionHistory",
+    "pages/success/success"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "口腔助手",
+    "backgroundColor": "white",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#686868",
+    "selectedColor": "black",
+    "backgroundColor": "white",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/index_icon.png",
+        "selectedIconPath": "/images/index_active_icon.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "iconPath": "/images/news_icon.png",
+        "selectedIconPath": "/images/news_active_icon.png",
+        "text": "资讯"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "/images/my_icon.png",
+        "selectedIconPath": "/images/my_active_icon.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx245a993afc0ac892"
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "cloud": true
+}

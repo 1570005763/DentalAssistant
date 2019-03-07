@@ -1,0 +1,25 @@
+<!--pages/my/my.wxml-->
+<view class="container">
+    <view class="user-info">
+        <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+        <view class="user-nickname">
+            {{userInfo.nickName}}
+            <block wx:if="{{userInfo.gender == 1}}">
+                <image class="user-gender" src="/images/male.png" />
+            </block>
+            <block wx:elif="{{userInfo.gender == 2}}">
+                <image class="user-gender" src="/images/female.png" />
+            </block>
+        </view>
+        <view class="user-location">{{userInfo.province}} {{userInfo.city}}</view>
+    </view>
+    <view class="grids">
+        <block wx:for="{{gridList}}" wx:key="grid">
+            <view class="grid" bindtap="viewGridDetail" data-url="{{item.enName}}" data-idx="{{index}}">
+                <image class="grid-icon" src="{{item.icon}}" />
+                <view wx:if="{{index==2&&newAnswer!=0}}" class="weui-badge" style="position: absolute;top: 30rpx;right: 60rpx;">{{newAnswer}}</view>
+                <view class="grid-title">{{item.zhName}}</view>
+            </view>
+        </block>
+    </view>
+</view>

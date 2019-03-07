@@ -1,0 +1,30 @@
+<!--pages/dentist/dentist.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="body">
+    <navigator class="item" url='/pages/setAppointment/setAppointment'>
+      <text class="info-name">预约设置</text>
+      <image class="info-img" src="/images/appointment.png" background-size="cover"/>
+    </navigator>
+    <navigator class="item" url='/pages/setQuestion/setQuestion'>
+      <text class="info-name">问答专区</text>
+      <image class="info-img" src="/images/question.png" background-size="cover"/>
+    </navigator>
+    <navigator class="item" url='/pages/setArticle/setArticle'>
+      <text class="info-name">上传文章</text>
+      <image class="info-img" src="/images/article.png" background-size="cover"/>
+    </navigator>
+    <navigator class="item" url='/pages/setTrends/setTrends'>
+      <text class="info-name">更新动态</text>
+      <image class="info-img" src="/images/trends.png" background-size="cover"/>
+    </navigator>
+    <navigator class="item" url='/pages/setBlacklist/setBlacklist'>
+      <text class="info-name">黑名单</text>
+      <image class="info-img" src="/images/blacklist.png" background-size="cover"/>
+    </navigator>
+  </view>
+</view>
